@@ -23,8 +23,14 @@ namespace Gerencial.WPF.ViewModels
             }
         }
         public PlanCuentasViewModel()
-        {   
-            
+        {
+            if (Cuentas.Count == 0)
+            {
+                Cuentas.Add(new Cuenta() { Nombre = "Activos", Codigo = 1 });
+                Cuentas.Add(new Cuenta() { Nombre = "Pasivos", Codigo = 2 });
+                Cuentas.Add(new Cuenta() { Nombre = "Ventas", Codigo = 3 });
+                Cuentas.Add(new Cuenta() { Nombre = "Gastos", Codigo = 4 });
+            }
         }
 
     }

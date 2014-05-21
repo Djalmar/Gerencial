@@ -63,7 +63,11 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\Data.cs" />
+    <Compile Include="ViewModels\LibroDiarioViewModel.cs" />
     <Compile Include="ViewModels\PlanCuentasViewModel.cs" />
+    <Compile Include="Views\AsientoView.xaml.cs">
+      <DependentUpon>AsientoView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CuentaView.xaml.cs">
       <DependentUpon>CuentaView.xaml</DependentUpon>
     </Compile>
@@ -72,6 +76,9 @@
     </Compile>
     <Compile Include="Views\PlanCuentasView.xaml.cs">
       <DependentUpon>PlanCuentasView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TransaccionView.xaml.cs">
+      <DependentUpon>TransaccionView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -114,6 +121,10 @@
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Page Include="Views\AsientoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CuentaView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -123,6 +134,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PlanCuentasView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TransaccionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -5,9 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:mui="http://firstfloorsoftware.com/ModernUI"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="700" d:DesignWidth="800">
     <UserControl.Resources>
-        
         <PathGeometry x:Key="addIcon">F1 M 35,19L 41,19L 41,35L 57,35L 57,41L 41,41L 41,57L 35,57L 35,41L 19,41L 19,35L 35,35L 35,19 Z</PathGeometry>
     </UserControl.Resources>
     <Grid>
@@ -19,8 +18,10 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Plan de cuentas" Style="{StaticResource Heading1}" Grid.ColumnSpan="2"/>
-        <Grid Grid.Column="1" Grid.Row="1" Background="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}">
+        <Grid Grid.ColumnSpan="2">
+            <TextBlock Text="Plan de cuentas" Style="{StaticResource Heading1}" />
+        </Grid>
+        <Grid Grid.Column="1" Grid.Row="1" Background="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" Margin="12">
             <Grid Margin="12" VerticalAlignment="Top">
                 <Grid.ColumnDefinitions >
                     <ColumnDefinition Width="70"/>
@@ -37,8 +38,8 @@
                                 <ColumnDefinition Width="70"/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-                            <TextBlock Text="{Binding Codigo}" FontFamily="Segoe WP SemiLight"/>
-                            <TextBlock Grid.Column="1" Text="{Binding Nombre}" FontFamily="Segoe WP Light"/>
+                            <TextBlock Text="{Binding Codigo}" FontFamily="Segoe WP SemiLight" FontWeight="ExtraBold"/>
+                            <TextBlock Grid.Column="1" Text="{Binding Nombre}" FontFamily="Segoe WP Light" FontWeight="ExtraBold"/>
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>

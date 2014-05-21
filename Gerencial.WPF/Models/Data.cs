@@ -10,6 +10,6 @@ namespace Gerencial.WPF.Models
     {
         public static ObservableCollection<Cuenta> Cuentas { get; set; }
         public static ObservableCollection<Asiento> Asientos { get; set; }
-
+        public static Asiento AsientoActual { get; set; }
     }
 }

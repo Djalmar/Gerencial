@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="Gerencial.WPF.Views.TransaccionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid Style="{StaticResource ContentRoot}">
+        <ScrollViewer>
+            <StackPanel MinWidth="200">
+                <TextBlock Text="TRANSACCION" Style="{StaticResource Heading2}" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Cuenta" Style="{StaticResource Heading2}"/>
+                    <TextBlock Grid.Column="1" Text="Debe" Style="{StaticResource Heading2}"/>
+                    <TextBlock Grid.Column="2" Text="Haber" Style="{StaticResource Heading2}"/>
+                    <ComboBox Name="cmbCuenta" Grid.Row="1" ItemsSource="{Binding Cuentas}" DisplayMemberPath="Nombre">
+                    </ComboBox>
+                    <TextBox Name="txtDebe" Grid.Row="1" Grid.Column="1"></TextBox>
+                    <TextBox Name="txtHaber" Grid.Row="1" Grid.Column="2"></TextBox>
+                </Grid>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <mui:ModernButton Click="Aceptar">Aceptar</mui:ModernButton>
+                    <mui:ModernButton Click="Cancelar">Cancelar</mui:ModernButton>
+                </StackPanel>
+                
+                
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

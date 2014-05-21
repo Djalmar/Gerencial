@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FirstFloor.ModernUI.Windows.Controls;
+using Gerencial.WPF.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,25 @@ namespace Gerencial.WPF.Views
     /// </summary>
     public partial class LibroDiario : UserControl
     {
+        LibroDiarioViewModel viewModel;
         public LibroDiario()
         {
             InitializeComponent();
+            this.DataContext = viewModel = new LibroDiarioViewModel();
+        }
+
+        private void NuevoAsiento(object sender, RoutedEventArgs e)
+        {
+            viewModel.Asiento = null;
+            ModernWindow window = new ModernWindow() { Style = (Style)App.Current.Resources["EmptyWindow"] };
+            window.Title = "Asiento";
+            window.IsTitleVisible=true;
+            AsientoView cuentaView = new AsientoView(window);
+            window.Content = cuentaView;
+            window.Width = 480;
+            window.Height = 250;
+            window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            window.Show();
         }
     }
 }

@@ -39,6 +39,8 @@ namespace Gerencial.WPF.Views
         private void ModernButton_Click(object sender, RoutedEventArgs e)
         {
             ModernWindow window = new ModernWindow() { Style = (Style)App.Current.Resources["EmptyWindow"] };
+            window.Title = "Cuentas";
+            window.IsTitleVisible = true;
             CuentaView cuentaView = new CuentaView(window);
             window.Content = cuentaView;
             window.Width = 480;

@@ -6,7 +6,7 @@
              xmlns:mui="http://firstfloorsoftware.com/ModernUI"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="800">
-    <Grid Style="{StaticResource ContentRoot}">
+    <Grid Style="{StaticResource ContentRoot}" Margin="0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition/>
@@ -15,5 +15,63 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <Grid Grid.ColumnSpan="2">
+            <TextBlock Text="Libro diario" Style="{StaticResource Heading1}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        </Grid>
+        <StackPanel Grid.Row="1" Margin="12">
+            <mui:ModernButton Content="Nuevo asiento" Click="NuevoAsiento"/>
+        </StackPanel>
+        <Grid Grid.Column="1" Grid.Row="1" ShowGridLines="True" Background="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" Margin="12">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.7*" x:Name="clmFecha"/>
+                <ColumnDefinition Width="2*" Name="clmContenido"/>
+                <ColumnDefinition Width="0.5*" Name="clmCodigo"/>
+                <ColumnDefinition Width="1*" Name="clmDebe"/>
+                <ColumnDefinition Width="1*" Name="clmHaber"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="FECHA" Margin="12,0,0,0"/>
+            <TextBlock Text="CONTENIDO" Grid.Column="1" Margin="12,0,0,0"/>
+            <TextBlock Text="CODIGO" Grid.Column="2" Margin="12,0,0,0"/>
+            <TextBlock Text="DEBE" Grid.Column="3" Margin="12,0,0,0"/>
+            <TextBlock Text="HABER" Grid.Column="4" Margin="12,0,0,0"/>
+            <ListBox ItemsSource="{Binding Asientos}" Grid.Row="1" Grid.ColumnSpan="6" Name="lstAsientos">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" Width="{Binding ActualWidth-20, ElementName=lstAsientos, Mode=OneWay}">
+                            <TextBlock Text="{Binding Path=Fecha}" Width="{Binding ActualWidth,ElementName=clmFecha}"/>
+                            <StackPanel>
+                                <TextBlock HorizontalAlignment="Left" Margin="24,0,0,0">
+                                    <Run Text="------"/>
+                                    <Run  Text="{Binding Path=Numero}" />
+                                    <Run Text="------"/>
+                                </TextBlock>
+                                <ListBox ItemsSource="{Binding Transacciones}">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="{Binding ActualWidth,ElementName=clmContenido}"/>
+                                                    <ColumnDefinition Width="{Binding ActualWidth,ElementName=clmCodigo}"/>
+                                                    <ColumnDefinition Width="{Binding ActualWidth,ElementName=clmDebe}"/>
+                                                    <ColumnDefinition Width="{Binding ActualWidth,ElementName=clmHaber}"/>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock Text="{Binding Path=Cuenta.Nombre}"/>
+                                                <TextBlock Text="{Binding Path=Cuenta.Codigo}" Grid.Column="1"/>
+                                                <TextBlock Text="{Binding Path=Debe}" Grid.Column="2"/>
+                                                <TextBlock Text="{Binding Path=Haber}" Grid.Column="3"/>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
     </Grid>
 </UserControl>
